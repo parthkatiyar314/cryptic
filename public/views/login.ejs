@@ -1,0 +1,98 @@
+Sign-up HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Log-in</title>
+    <link rel="stylesheet" href="../styles/login.css" />
+    <link rel="stylesheet" href="../styles/cursor.css">
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.8.5/build/spline-viewer.js"
+    ></script>
+    <script>
+      window.onload = function () {
+        var shadowRoot = document.querySelector("spline-viewer").shadowRoot;
+        shadowRoot.querySelector("#logo").remove();
+      };
+    </script>
+   <script src="scripts/console.js"></script>
+  </head>
+  <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      "
+    >
+      <div
+        style="
+          position: absolute;
+          left: -62px;
+          top: 0;
+          height: 100%;
+          width: 70%;
+          z-index: 0;
+        "
+      >
+        <spline-viewer
+          url="https://prod.spline.design/Qw81Io5Uimr2mRZz/scene.splinecode"
+          style="width: 100%; height: 100%; margin-right: 190px"
+        ></spline-viewer>
+      </div>
+
+      <div class="ring" style="z-index: 1">
+        <i style="--clr: #091833"></i>
+        <i style="--clr: #711c91"></i>
+        <i style="--clr: #0abdc6"></i>
+        <form action="/login" method="post" class="login">
+          <div class="login">
+            <h2>Login</h2>
+            <div class="inputaccount">
+              <input type="text" placeholder="Username" id="username" name="username" />
+            </div>
+            <div class="inputaccount">
+              <input type="password" placeholder="Password" id="password" name="password" />
+            </div>
+            <div class="inputaccount">
+              <input type="submit" value="Login" id="submit" />
+            </div>
+            <div class="links">
+              <a href="/register">Not a Member? Sign-up</a>
+            </div>
+            <% if(error){ %>
+            <p class="error-message"><%= error %></p>
+            <% } %>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="../scripts/cursor.js"></script>
+  </body>
+</html>

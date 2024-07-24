@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/console.js"></script>
+    <title>Dashboard</title>
+    <!-- Include the Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-xl font-bold">Event - name</div>
+            <div class="flex space-x-4">
+                <a href="/home" class="text-white">Home</a>
+                <a href="/cryptic" class="text-white">Cryptic</a>
+                <a href="/team" class="text-white">My Team</a>
+                <a href="/logout" class="text-white">Logout</a>
+            </div>
+        </div>
+    </nav>
+    <% if(isLeader){ %>
+        <div class="container mx-auto mt-4 flex justify-end">
+            <a href="/registermember" class="bg-blue-500 text-white px-4 py-2 rounded">Add Users</a>
+        </div>
+        <% } %>
+    
+    <div class="container mx-auto mt-4">
+        <% for(let i=0; i<userData.length; i++){ %>
+            <div class="mb-4 p-4 bg-gray-100 rounded shadow-md">
+                <p>Name: <%= userData[i].username %></p>
+                <p>Email: <%= userData[i].email %></p>
+                <% if(isLeader && i !== 0){ %>
+                    <form action="/deleteuser/<%= userData[i]._id %>?_method=DELETE" method="POST">
+                        <button class="mt-2 deleteButton">
+                            <img src="https://img.icons8.com/?size=100&id=1942&format=png&color=000000" alt="Delete"
+                                class="w-6 h-6">
+                        </button>
+                    </form>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+</body>
+
+<script>
+    document.querySelectorAll('.deleteButton').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            const confirmed = confirm('Are you sure you want to delete this user?');
+            if (confirmed) {
+                this.closest('form').submit();
+            }
+        });
+    });
+</script>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Rankings</title>
+    <link rel="stylesheet" href="../styles/cursor.css" />
+    <link rel="stylesheet" href="../styles/leaderboard.css" />
+    <script>
+      setInterval(() => {
+          window.location.reload();
+      }, 60000);
+  </script>
+   <script src="scripts/console.js"></script>
+  </head>
+  <body>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="nav">
+        <div class="artist">Leaderboard</div>
+        <div class="social-media">
+          <ul>
+            <li>
+              <a href="/">Dashboard</a>
+            </li>
+            <li>
+              <a href="/cryptic">Cryptic</a>
+            </li>
+          </ul>
+          <div class="menu">
+            <a href="/logout"><ion-icon name="power"></ion-icon></a>
+          </div>
+        </div>
+      </div>
+    <video
+      src="https://res.cloudinary.com/dvhwz7ptr/video/upload/f_auto:video,q_auto/ovc1pcbq0lhthc8w5mgo"
+      autoplay
+      muted
+      loop
+      id="back"
+      class="back"
+    ></video>
+    <h1 style="margin-top: 7vh">Leaderboard</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Team Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < teamsData.length; i++) { %>
+          <tr>
+            <td class="rank"><%= i + 1 %></td>
+            <td class="team-name"><%= teamsData[i].teamName %></td>
+            <td class="score"><%= teamsData[i].questionData.score %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <script src="../scripts/cursor.js"></script>
+  </body>
+</html>
